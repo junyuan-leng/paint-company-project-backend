@@ -1,9 +1,8 @@
 from django.db import transaction
 from rest_framework import status as http_status
 from rest_framework.decorators import action
-from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin
 from rest_framework.response import Response
-from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
+from rest_framework.viewsets import ModelViewSet
 
 from paint_company_project.paint_inventory.models import Paint
 from paint_company_project.paint_inventory.permissions import ViewPaintPermission, EditPaintInventoryPermission, EditPaintStatusPermission
