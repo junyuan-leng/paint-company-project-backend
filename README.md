@@ -43,20 +43,29 @@
 	Authorization: Bearer <JWT_ACCESS_TOKEN>
 
 	Response
-	[
-	    {
-	        "id": "pnt_kBA3GgmMg5n7q",
-	        "color": "blue",
-	        "status": "out_of_stock",
-	        "inventory": 5
-	    },
-	    {
-	        "id": "pnt_N1j0kaJlg2Zlz",
-	        "color": "grey",
-	        "status": "available",
-	        "inventory": 4
-	    }
-	]
+	{
+	   "data":[
+	      {
+	         "id":"pnt_DkdrG9MBgbJ8o",
+	         "color":"blue",
+	         "status":"available",
+	         "inventory":3
+	      },
+	      {
+	         "id":"pnt_kBA3GgmMg5n7q",
+	         "color":"grey",
+	         "status":"running_low",
+	         "inventory":2
+	      },
+	      {
+	         "id":"pnt_N1j0kaJlg2Zlz",
+	         "color":"white",
+	         "status":"out_of_stock",
+	         "inventory":0
+	      }
+	   ],
+	   "total":3
+	}
 
 ### Update paint inventory
 
