@@ -23,11 +23,11 @@ class PaintViewSetTest(ViewSetTestCase):
         )
         response = self.list(auth_user=self.user)
         self.assertStatusCode(response, 200)
-        self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]["id"], str(blue_paint.id))
-        self.assertEqual(response.data[0]["color"], blue_paint.color)
-        self.assertEqual(response.data[0]["status"], blue_paint.status)
-        self.assertEqual(response.data[0]["inventory"], blue_paint.inventory)
+        self.assertEqual(response.data["total"], 1)
+        self.assertEqual(response.data["data"][0]["id"], str(blue_paint.id))
+        self.assertEqual(response.data["data"][0]["color"], blue_paint.color)
+        self.assertEqual(response.data["data"][0]["status"], blue_paint.status)
+        self.assertEqual(response.data["data"][0]["inventory"], blue_paint.inventory)
 
     def test_list_multiple_paints(self):
         blue_paint = Paint.objects.create(
@@ -47,7 +47,8 @@ class PaintViewSetTest(ViewSetTestCase):
         )
         response = self.list(auth_user=self.user)
         self.assertStatusCode(response, 200)
-        self.assertEqual(len(response.data), 3)
+        self.assertEqual(response.data["total"], 3)
+        print(response.data)
     
     def test_edit_paint_status(self):
         blue_paint = Paint.objects.create(

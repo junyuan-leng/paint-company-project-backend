@@ -23,6 +23,15 @@ class PaintViewSet(ModelViewSet):
 
     def get_queryset(self):
         return Paint.objects.all()
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(queryset, many=True)
+        data = {
+            "data": serializer.data,
+            "total": len(serializer.data)
+        }
+        return Response(data)
     
     @action(detail=True, methods=["put"])
     def status(self, request, *args, **kwargs):

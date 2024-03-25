@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-ezzfy_k+8q7rrzgc+hy_5q6*dkxxq_r6_pb_)3rh-ineus1#0d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "rest_framework",
     "django_extensions",
+    "corsheaders",
     "rest_framework_simplejwt",
     "paint_company_project.paint_inventory",
     "paint_company_project.user",
@@ -52,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'paint_company_project.urls'
