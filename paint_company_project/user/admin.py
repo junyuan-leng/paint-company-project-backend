@@ -7,12 +7,12 @@ from paint_company_project.user.models import User
 @admin.register(User)
 class UserAdmin(auth_admin.UserAdmin):
     list_display = [
-        "id",
+        "username",
         "is_head_office_staff",
         "can_view_paint_list",
         "can_edit_paint_status",
         "can_edit_paint_inventory",
-        "username",
+        "id",
         "password",
     ]
     fieldsets = (

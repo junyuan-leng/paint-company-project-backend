@@ -4,6 +4,7 @@ from paint_company_project.paint_inventory.models import Paint
 
 
 class PaintSerializer(serializers.ModelSerializer):
+    # defines what data we shall return in the paint list response
     id = HashidSerializerCharField(read_only=True)
     class Meta:
         model = Paint
@@ -16,6 +17,7 @@ class PaintSerializer(serializers.ModelSerializer):
 
 
 class PaintStatusUpdateSerializer(serializers.ModelSerializer):
+    # verifies paint status update request payload
     class Meta:
         model = Paint
         fields = [
@@ -24,6 +26,7 @@ class PaintStatusUpdateSerializer(serializers.ModelSerializer):
 
 
 class PaintInventoryUpdateSerializer(serializers.ModelSerializer):
+    # verifies paint inventory update request payload
     class Meta:
         model = Paint
         fields = [

@@ -10,6 +10,7 @@ class CustomBigHashidAutoField(BigHashidAutoField):
 
 
 class ViewSetTestCase(APITestCase):
+    # this is a helper class which simplifies view set tests
     request_factory = APIRequestFactory()
     viewset_cls = None
     view_cls = None
